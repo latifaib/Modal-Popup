@@ -1,0 +1,229 @@
+/* STEP 1: Basic page styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main-content {
+  text-align: center;
+}
+
+.main-content h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.open-modal-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.open-modal-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* STEP 2: Modal backdrop (gray overlay) */
+.modal-backdrop {
+  position: fixed; /* Covers entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240, 237, 237, 0.5); /* Semi-transparent gray */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Appears above everything */
+  opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.show {
+  display: flex; /* Show when active */
+  opacity: 1; /* Fully opaque when shown */
+}
+
+/* STEP 3: The modal box itself */
+.modal {
+  background-color: white;
+  width: 400px;
+  border-radius: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding: 30px;
+  max-width: 90%; /* Responsive on small screens */
+  transform: scale(0.8); /* Start scaled down */
+  transition: transform 0.3s ease;
+}
+
+.modal-backdrop.show  .modal{
+  transform: scale(1); /* Scale up when shown */
+}
+
+/* STEP 4: Close button (X) */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #333;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+    transform: rotate(90deg);
+}
+
+/* STEP 5: Modal header with warning icon */
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+
+}
+
+.warning-icon {
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  flex: 1;
+    line-height: 1.4; /* Better spacing */
+}
+
+/* STEP 6: Modal description text */
+.modal-description {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 25px 28px; /* Left margin aligns with title */
+  line-height: 1.4;
+}
+
+/* STEP 7: Button container */
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: 28px; /* Aligns with title */
+}
+
+/* STEP 8: Button styles */
+.btn {
+  flex: 1; /* Equal width buttons */
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-no {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-no:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+}
+
+.btn-yes {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.btn-yes:hover {
+  background-color: #0056b3;
+   transform: translateY(-1px);
+}
+
+
+/* MEDIA QUERIES - Making it responsive */
+        
+        /* Tablet view */
+        @media screen and (max-width: 768px) {
+            .modal {
+                width: 90%;
+                padding: 25px;
+            }
+            
+            .modal-title {
+                font-size: 16px;
+            }
+            
+            .modal-description {
+                font-size: 13px;
+            }
+        }
+
+        /* Mobile view */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .main-content h1 {
+                font-size: 24px;
+            }
+            
+            .open-modal-btn {
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+            
+            .modal {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 16px;
+            }
+            
+            .modal-description {
+                font-size: 13px;
+                margin-left: 20px;
+            }
+            
+            .modal-buttons {
+                margin-left: 20px;
+                flex-direction: column; /* Stack buttons vertically on mobile */
+                gap: 8px;
+            }
+            
+            .btn {
+                padding: 12px 16px;
+            }
+        }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal Popup</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Main page content -->
+    <div class="main-content">
+      <h1>Modal Popup</h1>
+      <button class="open-modal-btn" onclick="openModal()">
+        Open Modal Popup
+      </button>
+    </div>
+    <div
+      id="modalBackdrop"
+      class="modal-backdrop"
+      onclick="closeModalOnBackdrop(event)"
+    >
+      <div class="modal" onclick="event.stopPropagation()">
+        <!-- Close button (X) -->
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+
+        <!-- Modal header with icon and title -->
+        <div class="modal-header">
+        <div class="warning-icon">
+          <img src="./assets/image/warning-icon.svg" alt="Warning" width="20" height="20">
+        </div>
+        <h2 class="modal-title">Are you sure you want to exist?</h2>
+      </div>
+
+        <!-- Modal description -->
+        <p class="modal-description">
+          Just remember, time is a flat circle and reality is merely a social
+          construct.
+        </p>
+
+        <!-- Action buttons -->
+        <div class="modal-buttons">
+          <button class="btn btn-no" onclick="closeModal()">No</button>
+          <button class="btn btn-yes" onclick="closeModal()">Yes</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
