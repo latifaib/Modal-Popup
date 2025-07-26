@@ -41,8 +41,8 @@ body {
   position: fixed; /* Covers entire screen */
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(240, 237, 237, 0.5); /* Semi-transparent gray */
   display: none; /* Hidden by default */
   justify-content: center;
@@ -60,14 +60,11 @@ body {
 /* STEP 3: The modal box itself */
 .modal {
   background-color: white;
-  width: 100%;
-  border-radius: none;
+  width: 400px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  position: relative;
   padding: 30px;
   max-width: 90%; /* Responsive on small screens */
   transform: scale(0.8); /* Start scaled down */
-  transition: transform 0.3s ease;
 }
 
 .modal-backdrop.show .modal {
